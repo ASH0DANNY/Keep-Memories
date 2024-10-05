@@ -1,10 +1,16 @@
-import Navbar from './Components/navbar';
-import logo from './logo.svg';
+import Footer from "./Components/footer";
+import Navbar from "./Components/navbar";
+import Sidebar from "./Components/sidebar";
+import ToDoList from "./Components/ToDoList/todolist";
+import logo from "./logo.svg";
 
 function App() {
   return (
     <>
-    <Navbar/>
+      <Navbar />
+      <Sidebar />
+      <ToDoList />
+      <Footer />
     </>
   );
 }

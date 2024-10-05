@@ -1,16 +1,14 @@
-import { Box, Container } from '@material-ui/core'
-import React from 'react'
+import { Box, Container } from "@material-ui/core";
+import React from "react";
 
-function Footer() {
+const Footer = () => {
   return (
     <>
-    <Container>
-        <Box sx={{bgcolor:"#000", height: 10, color:"#fff"}}>
-            
-        </Box>
-    </Container>
+      <Container>
+        <Box sx={{ bgcolor: "#000", height: 10, color: "#fff" }}>Footer</Box>
+      </Container>
     </>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
