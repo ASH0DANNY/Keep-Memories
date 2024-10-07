@@ -4,7 +4,17 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <Box sx={{ bgcolor: "#000", color: "#fff", height: 30, padding: 2 }}>FOOTER</Box>
+      <Box
+        sx={{
+          bgcolor: "#000",
+          color: "#fff",
+          height: 30,
+          padding: 2,
+          marginTop: 15,
+        }}
+      >
+        FOOTER
+      </Box>
     </>
   );
 };
