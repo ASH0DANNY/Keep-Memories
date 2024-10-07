@@ -1,5 +1,6 @@
 import { Box, Grid2 } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -8,20 +9,19 @@ const Navbar = () => {
         sx={{
           bgcolor: "#000",
           color: "#fff",
-          height: 15,
-          padding: 2,
+          height: 40
         }}
       >
-        <Grid2 sm={6}>LOGO/NAME</Grid2>
-        <Grid2 container spacing={2} sm={6}>
+        <Grid2 sm={6} xs={12}>LOGO/NAME</Grid2>
+        <Grid2 container spacing={2}>
           <Grid2 item sm={4}>
-            HOME
+            <Link to="/">HOME</Link>
           </Grid2>
           <Grid2 item sm={4}>
-            NEW
+            <Link to="/todo">TODO</Link>
           </Grid2>
           <Grid2 item sm={4}>
-            HISTORY
+            <Link to="/savepassword">SavePass</Link>
           </Grid2>
         </Grid2>
       </Box>
