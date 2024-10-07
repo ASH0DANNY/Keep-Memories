@@ -27,7 +27,7 @@ const SavePassword = () => {
       setSavedPassword(updatedList);
       setEditIndex(null);
     } else {
-      setTodos([...SavedPassword, inputValue]);
+      setSavedPassword([...SavedPassword, inputValue]);
     }
 
     setInputValue("");
@@ -49,19 +49,19 @@ const SavePassword = () => {
       <input
         type="text"
         value={webLink}
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={(e) => setWebLink(e.target.value)}
         placeholder="Web/App link or Name"
       />
       <input
         type="text"
         value={userName}
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={(e) => setUserName(e.target.value)}
         placeholder="User Name"
       />
       <input
         type="text"
         value={userPassword}
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={(e) => setUserPassword(e.target.value)}
         placeholder="Password"
       />
       <Button onClick={handleAddSavePassword}>
