@@ -8,18 +8,23 @@ const SavePassword = () => {
   const [userName, setUserName] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [editIndex, setEditIndex] = useState(null);
-  const [inputValue, setInputValue] = useState({
-    link: "",
-    username: "",
-    password: "",
-  });
+  const [inputValue, setInputValue] = useState([
+    {
+      link: "",
+      username: "",
+      password: "",
+    },
+  ]);
 
   const handleAddSavePassword = () => {
-    setInputValue({
-      link: webLink,
-      username: userName,
-      password: userPassword,
-    });
+    setInputValue([
+      {
+        link: webLink,
+        username: userName,
+        password: userPassword,
+      },
+    ]);
+    console.log("inputValue" + inputValue);
 
     if (editIndex !== null) {
       const updatedList = SavedPassword.map((item, index) =>
@@ -66,12 +71,15 @@ const SavePassword = () => {
         placeholder="Password"
       />
       <Button onClick={handleAddSavePassword}>
-        {editIndex !== null ? "Add" : "Update"}
+        {editIndex == null ? "Add" : "Update"}
       </Button>
       <ul>
         {SavedPassword.map((item, index) => (
           <li key={index}>
-            {item}
+            {item[index]}
+            {item[index].link}
+            {item[index].username}
+            {item[index].password}
             <button onClick={() => HandleUpdatePassword(index)}>Edit</button>
             <button onClick={() => HandleDeletePassword(index)}>Delete</button>
           </li>
