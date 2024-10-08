@@ -36,7 +36,9 @@ const SavePassword = () => {
       setSavedPassword([...SavedPassword, inputValue]);
     }
 
-    setInputValue("");
+    setWebLink("");
+    setUserName("");
+    setUserPassword("");
   };
 
   const HandleUpdatePassword = (index) => {
@@ -77,8 +79,7 @@ const SavePassword = () => {
         {SavedPassword.map((item, index) => (
           <li key={index}>
             {item[index]}
-            {item[index].link}
-            {item[index].username}
+            link:{item[index].link} uname:{item[index].username} pass:
             {item[index].password}
             <button onClick={() => HandleUpdatePassword(index)}>Edit</button>
             <button onClick={() => HandleDeletePassword(index)}>Delete</button>
