@@ -43,6 +43,9 @@ const SavePassword = () => {
 
   const HandleUpdatePassword = (index) => {
     setInputValue(SavedPassword[index]);
+    setWebLink(inputValue.link);
+    setUserName(inputValue.username);
+    setUserPassword(inputValue.password);
     setEditIndex(index);
   };
 
