@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from "./component/footer";
 import Navbar from "./component/navbar";
 import TodoList from "./component/todolist";
-import SavePassword from "./component/savePassword";
 import HomePage from "./component/HomePage";
+import SavePassword from "./component/savePassword";
 
 function App() {
   return (

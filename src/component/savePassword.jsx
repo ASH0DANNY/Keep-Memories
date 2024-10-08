@@ -1,95 +1,77 @@
-import { Button } from "@mui/material";
 import React, { useState } from "react";
-import "./savePassword.css";
 
 const SavePassword = () => {
-  const [SavedPassword, setSavedPassword] = useState([]);
-  const [webLink, setWebLink] = useState("");
-  const [userName, setUserName] = useState("");
-  const [userPassword, setUserPassword] = useState("");
-  const [editIndex, setEditIndex] = useState(null);
-  const [inputValue, setInputValue] = useState([
-    {
-      link: "",
-      username: "",
-      password: "",
-    },
-  ]);
+  const [users, setUsers] = useState([]);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [webLink, setwebLink] = useState("");
+  const [editingIndex, setEditingIndex] = useState(null);
 
-  const handleAddSavePassword = () => {
-    setInputValue([
-      {
-        link: webLink,
-        username: userName,
-        password: userPassword,
-      },
-    ]);
-    console.log("inputValue" + inputValue);
-
-    if (editIndex !== null) {
-      const updatedList = SavedPassword.map((item, index) =>
-        index === editIndex ? inputValue : item
+  const handleAddUser = () => {
+    if (editingIndex !== null) {
+      // Edit existing user
+      const updatedUsers = users.map((user, index) =>
+        index === editingIndex ? { webLink, username, password } : user
       );
-      setSavedPassword(updatedList);
-      setEditIndex(null);
+      setUsers(updatedUsers);
+      setEditingIndex(null);
     } else {
-      setSavedPassword([...SavedPassword, inputValue]);
+      // Add new user
+      setUsers([...users, { webLink, username, password }]);
     }
-
-    setWebLink("");
-    setUserName("");
-    setUserPassword("");
+    setUsername("");
+    setPassword("");
+    setwebLink("");
   };
 
-  const HandleUpdatePassword = (index) => {
-    setInputValue(SavedPassword[index]);
-    setWebLink(inputValue.link);
-    setUserName(inputValue.username);
-    setUserPassword(inputValue.password);
-    setEditIndex(index);
+  const handleEditUser = (index) => {
+    setwebLink(users[index].webLink);
+    setUsername(users[index].username);
+    setPassword(users[index].password);
+    setEditingIndex(index);
   };
 
-  const HandleDeletePassword = (index) => {
-    const updatedList = SavedPassword.filter((_, i) => i !== index);
-    setSavedPassword(updatedList);
+  const handleDeleteUser = (index) => {
+    const updatedUsers = users.filter((_, i) => i !== index);
+    setUsers(updatedUsers);
   };
 
   return (
-    <>
+    <div>
       <h1>Save Password</h1>
       <input
         type="text"
+        placeholder="Username"
         value={webLink}
-        onChange={(e) => setWebLink(e.target.value)}
-        placeholder="Web/App link or Name"
+        onChange={(e) => setwebLink(e.target.value)}
       />
       <input
         type="text"
-        value={userName}
-        onChange={(e) => setUserName(e.target.value)}
-        placeholder="User Name"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
       />
       <input
-        type="text"
-        value={userPassword}
-        onChange={(e) => setUserPassword(e.target.value)}
+        type="password"
         placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
-      <Button onClick={handleAddSavePassword}>
-        {editIndex == null ? "Add" : "Update"}
-      </Button>
+      <button onClick={handleAddUser}>
+        {editingIndex !== null ? "Update Password" : "Add Password"}
+      </button>
+
+      <h2>Password List</h2>
       <ul>
-        {SavedPassword.map((item, index) => (
+        {users.map((user, index) => (
           <li key={index}>
-            {item[index]}
-            link:{item[index].link} uname:{item[index].username} pass:
-            {item[index].password}
-            <button onClick={() => HandleUpdatePassword(index)}>Edit</button>
-            <button onClick={() => HandleDeletePassword(index)}>Delete</button>
+            {user.webLink} {user.username} (*****)
+            <button onClick={() => handleEditUser(index)}>Edit</button>
+            <button onClick={() => handleDeleteUser(index)}>Delete</button>
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 
