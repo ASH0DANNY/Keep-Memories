@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './todolist.css';
 
 const TodoList = () => {
@@ -6,6 +6,17 @@ const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [editIndex, setEditIndex] = useState(null);
+
+    // Load todos from localStorage on component mount
+    useEffect(() => {
+      const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+      setTodos(storedTodos);
+    }, []);
+  
+    // Save todos to localStorage whenever todos change
+    useEffect(() => {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }, [todos]);
 
   const handleAddTodo = () => {
     if (inputValue.trim() === "") return;
