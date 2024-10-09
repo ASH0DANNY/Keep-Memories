@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import './addBirthday.css';
+import React, { useState } from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+import "./addBirthday.css";
 
 function AddBirthdayEvent() {
   const [date, setDate] = useState(new Date());
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [birthdays, setBirthdays] = useState([]);
   const [editingIndex, setEditingIndex] = useState(null);
 
@@ -20,7 +20,7 @@ function AddBirthdayEvent() {
       } else {
         setBirthdays([...birthdays, { name, date }]);
       }
-      setName('');
+      setName("");
       setDate(new Date());
     }
   };
@@ -45,12 +45,9 @@ function AddBirthdayEvent() {
           onChange={(e) => setName(e.target.value)}
           placeholder="Enter person's name"
         />
-        <Calendar
-          onChange={setDate}
-          value={date}
-        />
+        <Calendar onChange={setDate} value={date} />
         <button onClick={handleAddOrUpdateBirthday}>
-          {editingIndex !== null ? 'Update Birthday' : 'Add Birthday'}
+          {editingIndex !== null ? "Update Birthday" : "Add Birthday"}
         </button>
       </div>
       <h2>Added Birthdays:</h2>

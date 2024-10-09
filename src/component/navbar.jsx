@@ -23,6 +23,9 @@ const Navbar = () => {
           <Grid2 item sm={4}>
             <Link to="/savepassword">SavePass</Link>
           </Grid2>
+          <Grid2 item sm={4}>
+            <Link to="/add_birthday">Birthday</Link>
+          </Grid2>
         </Grid2>
       </Box>
     </>

@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
-  const CardList = ["todo", "savepassword", "AddBirthdayEvent"];
+  const CardList = ["todo", "savepassword", "add_birthday"];
   return (
     <>
       <Box sx={{ padding: 4, marginTop: 7, marginBottom: 7 }}>
