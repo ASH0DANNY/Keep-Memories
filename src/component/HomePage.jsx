@@ -3,6 +3,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
+  const linkStyle = {
+    color: "white",
+    textDecoration: "none",
+  };
   const CardList = ["todo", "savepassword", "add_birthday"];
   return (
     <>
@@ -11,7 +15,7 @@ const HomePage = () => {
           {CardList.map((item, index) => (
             <li key={index}>
               {item}
-              <Link to={item}>Link</Link>
+              <Link to={item} style={linkStyle}>Link</Link>
             </li>
           ))}
         </ul>
