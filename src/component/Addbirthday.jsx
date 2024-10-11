@@ -3,7 +3,7 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "./addBirthday.css";
 
-function AddBirthdayEvent() {
+const AddBirthdayEvent=()=> {
   const [date, setDate] = useState(new Date());
   const [name, setName] = useState("");
   const [birthdays, setBirthdays] = useState([]);
