@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const linkStyle = {
-    color: "white",
+    color: "blue",
     textDecoration: "none",
   };
   const CardList = ["todo", "savepassword", "add_birthday"];
